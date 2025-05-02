@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "extracao-python-api"
+version = "0.1.0"
+description = ""
+authors = ["Wesley Santos <wsinformatica02@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pandas = "^2.2.3"
+requests = "^2.32.3"
+ipykernel = "^6.29.5"
+streamlit = "^1.45.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
