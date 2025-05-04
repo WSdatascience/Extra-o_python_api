@@ -11,6 +11,8 @@ pandas = "^2.2.3"
 requests = "^2.32.3"
 ipykernel = "^6.29.5"
 streamlit = "^1.45.0"
+sqlalchemy = "^2.0.40"
+psycopg2-binary = "^2.9.10"
 
 
 [build-system]

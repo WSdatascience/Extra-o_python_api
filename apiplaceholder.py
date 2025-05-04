@@ -1,10 +1,11 @@
 import pandas as pd
 import requests
-import streamlit as st
+from bancodedados import inserir_dados_banco,engine,text
+import pandas as pd
 
-dados = []
 
 def coletar_dados_api_placeholder():
+    dados = []
     base_url = "https://jsonplaceholder.typicode.com/posts"
 
     response = requests.get(base_url)
@@ -15,17 +16,20 @@ def coletar_dados_api_placeholder():
     try:
         data = response.json()
 
+        if not data:
+            print("Nenhum dado retornado.")
+
         for item in data:
             dados.append({
                 "id": item.get("id"),
                 "titulo": item.get("title"),
                 "mensagem": item.get("body")
             })
+
+        inserir_dados_banco(dados, engine)
+        return pd.DataFrame(dados)
         
-        return st.dataframe(dados)
         
-        if not data:
-            print("Nenhum dado retornado.")
         
     except ValueError as e:
         print("Erro ao processar JSON")
