@@ -26,7 +26,7 @@ def coletar_dados_api_placeholder():
                 "mensagem": item.get("body")
             })
 
-        inserir_dados_banco(dados, engine)
+        #inserir_dados_banco(dados, engine)
         return pd.DataFrame(dados)
         
         

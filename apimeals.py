@@ -1,7 +1,6 @@
 import pandas as pd
 import requests
-import streamlit as st
-
+from bancodedados import inserir_dados_banco, engine, text
 dados = []
 
 def coletar_dados_api_meals():
@@ -22,9 +21,8 @@ def coletar_dados_api_meals():
             "strCategoryDescription" : item.get("strCategoryDescription")  
             })
             
-        
-
-        return st.dataframe(dados)    
+        inserir_dados_banco(dados, engine)
+        return pd.DataFrame(dados)
     
     except ValueError as e:
         print("Erro ao processar JSON")
